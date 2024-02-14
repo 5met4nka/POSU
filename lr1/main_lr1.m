@@ -1,6 +1,5 @@
 clear, clc, close all
 
-syms t
 time = 0:0.1:30;
 
 hand_x1 = -0.590158 * exp(-1.71135 * time) - 0.409842 * exp(-0.144327 * time) .* cos(1.86686 * time) - 0.572697 * exp(-0.144327 * time) .* sin(1.86686 * time);
