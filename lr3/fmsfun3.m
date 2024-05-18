@@ -11,7 +11,7 @@ function [tm] = fmsfun3(w0)
     polynom = [1 2 * w0 2 * w0 ^ 2 w0 ^ 3];
     p = roots(polynom);
     K = acker(A, B, p)
-    [t, x] = ode45('odefun3', [0 10], [x10 0 0]);
+    [t, x] = ode45('odefun3', [0 100], [x10 0 0]);
     tm = [];
 
     for j = 1:3
@@ -30,7 +30,7 @@ function [tm] = fmsfun3(w0)
     tm = max(tm)
 
     for i = 1:length(t)
-        u(i) = K(1) * x(i, 1) + K(2) * x(i, 2) + K(3) * x(i, 3);
+        u(i) = -K(1) * x(i, 1) - K(2) * x(i, 2) - K(3) * x(i, 3);
 
         if abs(u(i)) > um
             u(i) = sign(u(i)) * um;
